@@ -30,9 +30,11 @@ The remaining included fixes have passed source-level and extracted-algorithm re
 
 ## Why this project exists
 
-The source audit found a mixture of deterministic defects, lifecycle bugs, indexing errors, async flight-plan risks, stale reactive dependencies, incomplete UI functions, and unfinished features.
+The project began with a severe, reproducible **FUEL-page lockout** in the shipped Boeing 707 UNS-1. After fuel/weight initialization, leaving the FUEL page and attempting to return to it could trigger recursive page navigation until the JavaScript call stack overflowed, effectively making the FUEL page unusable for the rest of the session. Coherent GT confirmed the failure with `RangeError: Maximum call stack size exceeded`. The root cause was navigation being triggered from the FUEL page's `onResume()` lifecycle handler before the requested subpage state had been committed, causing `onResume → navigateTo → resume → onResume` recursion. **A06 removes that recursive navigation path.** In simulator testing, FUEL can now be reopened repeatedly — including NAV → FUEL → NAV → FUEL — without the stack overflow returning.
 
-One example is repeated use of JavaScript's bitwise XOR operator (`^`) in position-variance / ANP formulas where mathematical exponentiation (`**`) is required. The defect exists in the public source lineage and remained present in the newer shipped Boeing 707 implementation.
+That confirmed failure led to a broader source audit, which found a mixture of additional deterministic defects, lifecycle bugs, indexing errors, async flight-plan risks, stale reactive dependencies, incomplete UI functions, and unfinished features.
+
+One especially clear example is repeated use of JavaScript's bitwise XOR operator (`^`) in position-variance / ANP formulas where mathematical exponentiation (`**`) is required. The defect exists in the public source lineage and remained present in the newer shipped Boeing 707 implementation.
 
 See [`docs/AUDIT.md`](docs/AUDIT.md) and [`docs/AUDIT-STATUS.csv`](docs/AUDIT-STATUS.csv) for the full engineering record.
 
