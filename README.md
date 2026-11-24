@@ -61,6 +61,10 @@ Near-term work includes:
 
 Longer-term candidate features include completing the original TUNE radio-management concept and event-driven flight telemetry/logging.
 
+## Project keywords
+
+`msfs-2024` · `microsoft-flight-simulator` · `boeing-707` · `boeing-707-320c` · `uns-1` · `universal-avionics` · `working-title` · `flight-management-system` · `avionics` · `aircraft-enhancement` · `community-patch` · `flight-simulator-addon`
+
 ## Installation
 
 A one-step Community-folder release package will be provided through GitHub Releases after the initial public beta is frozen and reviewed.
