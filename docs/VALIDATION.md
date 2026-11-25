@@ -17,6 +17,6 @@ The other 13 audit items passed offline transformation/algorithm checks. Success
 
 ## Distribution validation
 
-The stock hash was reconstructed by reversing the prior A04/A05/A06 edits and matched the original recorded stock SHA-256. The 30 line-range transformations were tested against that exact input in Python, generating the identical final JavaScript bytes. The new PowerShell installer has not been executed end-to-end on Windows/MSFS in this environment. Its input and output hashes are fail-closed. Manifest/layout metadata are generated locally and differ from the original test ZIP; instrument bytes must match exactly.
+The public ZIP preserves all three original package files byte-for-byte, including manifest.json, layout.json and the final flight-tested instrument. Only LICENSE, NOTICE.txt and INSTALL.txt were added alongside the package. ZIP integrity and instrument SHA-256 were verified. Release archive SHA-256: `F262D9E21A908160726F21514755840111A809C038C721E41E06E9E32C080C71`. The archived manifest contains historical candidate-stage validation wording; this document records the subsequent successful simulator tests.
 
 Public beta; no certification, no guarantee of compatibility with future simulator updates.
