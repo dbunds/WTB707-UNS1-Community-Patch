@@ -23,7 +23,7 @@
 
 ### Validation
 
-A04, A05 and A06 have direct simulator evidence; the cumulative build passed maintainer flight testing. Other individual edge cases remain to be verified. New local hash-gated installer recreates the tested instrument without distributing the full shipped bundle; Windows installer execution is pending.
+A04, A05 and A06 have direct simulator evidence; the cumulative build passed maintainer flight testing. Other individual edge cases remain to be verified. The public release ZIP preserves the exact tested Community package; license, notice and installation instructions are included. No local patch generation is required.
 
 ### Known limitations
 
