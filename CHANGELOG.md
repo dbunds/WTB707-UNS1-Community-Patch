@@ -1,36 +1,34 @@
 # Changelog
 
-All notable project changes will be documented here.
+## v0.1.0 — 2026-11-25 (initial public beta; package 0.0.4)
 
-## [Unreleased]
+### Fixed (16 audit IDs)
 
-### Planned
-- A07 STAR/approach async insertion reliability.
-- A08 SID async insertion reliability.
-- A09 waypoint insertion result propagation.
-- A12 transactional route import.
-- A21 FPL ETA/ETE display.
-
-## [0.9.0-beta.1] - Initial release candidate
-
-### Fixed
-- A01 navigation sensor exponentiation/XOR errors.
-- A02 shared mutable navigation sensor origin.
-- A03 active GPS receiver double increment.
-- A04 PERF destination prediction stale distance.
-- A05 FUEL destination prediction stale distance.
-- A06 FUEL page recursive lifecycle/navigation failure.
-- A10 active-leg preservation when insertion index is zero.
-- A11 incorrect flight-plan batch close token.
-- A13 imported direct-to reconstruction segment lookup.
-- A14 airway exit page-boundary/index handling.
-- A15 waypoint ETA simulator-date anchoring.
-- A16 pilot waypoint first-free suffix naming.
-- A19 stale asynchronous destination-facility result.
-- A25 GPS-only message text.
-- A26 LDA label and runway validation.
-- A27 zero-value PERF/FUEL formatting cases.
+- A01: use exponentiation instead of bitwise XOR in navigation sensor accuracy formulas.
+- A02: independent radio/GPS sensor position objects.
+- A03: correct selected GPS receiver index.
+- A04: live PERF destination distance updates.
+- A05: live FUEL destination distance updates.
+- A06 v2: remove recursive FUEL page resume navigation; select page 2 after valid passenger and cargo entries, including zero. Preserve manual paging.
+- A10: active-leg preservation for insertion at index zero.
+- A11: correct flight-plan batch close token.
+- A13: imported direct-to enroute segment lookup.
+- A14: airway exit selection page index and boundary handling.
+- A15: ETA anchored to simulator clock.
+- A16: first available unique pilot waypoint suffix.
+- A19: reject stale async destination facility result.
+- A25: correct GPS-only navigation message text (message ordering/deduplication not addressed).
+- A26: correct LDA label and runway-number validation.
+- A27: selected zero-value PERF/FUEL calculations and displays.
 
 ### Validation
-- A04, A05, A06 simulator-tested.
-- Remaining included items offline-tested with exact source transformation and extracted-algorithm regression checks.
+
+A04, A05 and A06 have direct simulator evidence; the cumulative build passed maintainer flight testing. Other individual edge cases remain to be verified. New local hash-gated installer recreates the tested instrument without distributing the full shipped bundle; Windows installer execution is pending.
+
+### Known limitations
+
+Brief FUEL page 1 flash before page 2 is cosmetic. No rendering change, weight-default change, VNAV implementation or STAR/SID transaction redesign included.
+
+## Planned
+
+A07, A08, A09, A12, A21 and remaining findings as documented in the audit. No release commitment.
