@@ -8,9 +8,14 @@ The maintainer has completed ground and extended flight testing of the cumulativ
 
 ### Install
 
-Follow the [installation guide](docs/INSTALLATION.md). The [PowerShell installer](Install-UNS1.ps1) generates a separate Community package from your own compatible stock 707 instrument. No original simulator files are modified. The installer checks the source and resulting SHA-256 and refuses unknown versions.
+1. Download `WTB707-UNS1-Community-Patch-v0.1.0.zip` from [GitHub Releases](https://github.com/dbunds/WTB707-UNS1-Community-Patch/releases) once the release asset is posted.
+2. Close MSFS 2024 and remove any earlier UNS-1 override from Community.
+3. Extract the ZIP and copy the `zz-wtb707-uns1-audit-batch-01-cumulative` folder directly into your Community folder.
+4. Start MSFS 2024 and load the 707.
 
-**Windows PC, MSFS 2024 Boeing 707-320C only.** Not for MSFS 2020, other aircraft, or real-world aviation. The installer itself is a new distribution mechanism and has not yet been executed on Windows; the resulting instrument bytes are the flight-tested target.
+No Developer Mode, VFS projection, scripts or editing official files required. See the [installation guide](docs/INSTALLATION.md).
+
+**Windows PC, MSFS 2024 Boeing 707-320C only.** Not for MSFS 2020, other aircraft, or real-world aviation.
 
 ### What this fixes
 
@@ -32,9 +37,9 @@ A repeatable FUEL-page lockout was traced to recursive navigation from the page'
 
 ### Compatibility and source provenance
 
-The tested aircraft-specific file is `html_ui/Pages/VCockpit/Instruments/Airliners/WTB707/WTUns1v2/WTUns1.js`. The installer accepts only the known stock WT2.2.4 file hash and produces the exact validated instrument hash listed in the installation guide. Do not use multiple overrides simultaneously. Remove the patch and re-check compatibility after simulator updates.
+The tested aircraft-specific file is `html_ui/Pages/VCockpit/Instruments/Airliners/WTB707/WTUns1v2/WTUns1.js`. The supplied Community package contains the exact flight-tested WT2.2.4-based instrument, with SHA-256 listed in the installation guide. Do not use multiple overrides simultaneously. Remove the patch and re-check compatibility after simulator updates.
 
-The public source lineage is [Microsoft's avionics mirror](https://github.com/microsoft/msfs-avionics-mirror). The shipped instrument is newer; this repository distributes local transformations rather than the complete shipped compiled file. See [redistribution policy](docs/REDISTRIBUTION.md), [LICENSE](LICENSE) and [NOTICE](NOTICE.md).
+The public source lineage is [Microsoft's avionics mirror](https://github.com/microsoft/msfs-avionics-mirror). The shipped instrument is newer; the maintainer reports obtaining approval to redistribute the modified shipped instrument for this freeware MSFS project. The release ZIP retains the upstream license and attribution. See [redistribution policy](docs/REDISTRIBUTION.md), [LICENSE](LICENSE) and [NOTICE](NOTICE.md).
 
 Report problems through [GitHub Issues](https://github.com/dbunds/WTB707-UNS1-Community-Patch/issues), including simulator version, patch hash, reproducible steps, expected/actual behavior, and relevant logs (remove personal paths).
 
